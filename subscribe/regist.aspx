@@ -11,7 +11,7 @@
 
 <body>
   <h1>NICEPAY TEST</h1>
-  <form method="POST" action="./response.aspx">
+  <form method="POST" action="./response">
     <label>card number</label><br>
     <input type="text" name="cardNo" ><br>
 
