@@ -51,7 +51,7 @@ public partial class response : Page
             if ((string)jObject["resultCode"] == "0000")
             {
                 Debug.WriteLine("success");
-                Billing(string bid);
+                Billing(bid);
             }
             else
             {
