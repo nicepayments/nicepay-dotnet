@@ -7,8 +7,8 @@ using System.Diagnostics;
 
 public partial class cancelResponse : Page
 {
-    protected const String clientId = "클라이언트 키";
-    protected const String secretKey = "시크릿 키";
+    protected const String clientId = "S1_6eaa0db1afdc41f3becb770878d67d25";
+    protected const String secretKey = "e80d068e400649a6ada66777fa350d40";
 
     protected String resultMsg;
     protected Guid uuid = Guid.NewGuid();
@@ -25,7 +25,7 @@ public partial class cancelResponse : Page
         var client = new RestClient();
         client.Authenticator = new HttpBasicAuthenticator(clientId, secretKey);
 
-        var request = new RestRequest("https://api.nicepay.co.kr/v1/payments/" + Request["tid"] + "/cancel");
+        var request = new RestRequest("https://sandbox-api.nicepay.co.kr/v1/payments/" + Request["tid"] + "/cancel");
         request.Method = Method.POST;
         request.AddHeader("Accept", "application/json");
         request.AddParameter("application/json; charset=utf-8", payload.ToString(), ParameterType.RequestBody);

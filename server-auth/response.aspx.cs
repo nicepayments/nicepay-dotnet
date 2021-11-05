@@ -7,8 +7,8 @@ using System.Diagnostics;
 
 public partial class response : Page
 {
-    protected const String clientId = "클라이언트 키";
-    protected const String secretKey = "시크릿 키";
+    protected const String clientId = "S2_af4543a0be4d49a98122e01ec2059a56";
+    protected const String secretKey = "9eb85607103646da9f9c02b128f2e5ee";
 
     protected String resultMsg;
 
@@ -22,7 +22,7 @@ public partial class response : Page
         var client = new RestClient();
         client.Authenticator = new HttpBasicAuthenticator(clientId, secretKey);
 
-        var request = new RestRequest("https://api.nicepay.co.kr/v1/payments/" + Request["tid"]);
+        var request = new RestRequest("https://sandbox-api.nicepay.co.kr/v1/payments/" + Request["tid"]);
         request.Method = Method.POST;
         request.AddHeader("Accept", "application/json");
         request.AddParameter("application/json; charset=utf-8", payload.ToString(), ParameterType.RequestBody);

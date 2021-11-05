@@ -17,7 +17,7 @@
   <script>
       function serverAuth() {
           AUTHNICE.requestPay({
-            clientId: '클라이언트 키',
+            clientId: 'S2_af4543a0be4d49a98122e01ec2059a56',
             method: 'card',
             vbankHolder: 'test',
             orderId: '<%= orderId %>',
@@ -25,7 +25,7 @@
             goodsName: '나이스페이-상품',
               returnUrl: 'http://localhost:8080/response',
             fnError: function (result) {
-            alert('고객용메시지 : ' + result.msg + '\n개발자확인용 : ' + result.errorMsg + '')
+            alert('개발자확인용 : ' + result.errorMsg + '')
           }
       });
       }

@@ -9,8 +9,8 @@ using System.Text;
 
 public partial class response : Page
 {
-    protected const String clientId = "클라이언트 키";
-    protected const String secretKey = "시크릿 키";
+    protected const String clientId = "S2_af4543a0be4d49a98122e01ec2059a56";
+    protected const String secretKey = "9eb85607103646da9f9c02b128f2e5ee";
 
     protected Guid uuid = Guid.NewGuid();
     protected String resultMsg;
@@ -34,7 +34,7 @@ public partial class response : Page
         var client = new RestClient();
         client.Authenticator = new HttpBasicAuthenticator(clientId, secretKey);
 
-        var request = new RestRequest("https://api.nicepay.co.kr/v1/subscribe/regist");
+        var request = new RestRequest("https://sandbox-api.nicepay.co.kr/v1/subscribe/regist");
         request.Method = Method.POST;
         request.AddHeader("Accept", "application/json");
         request.AddParameter("application/json; charset=utf-8", payload.ToString(), ParameterType.RequestBody);
@@ -51,6 +51,7 @@ public partial class response : Page
             if ((string)jObject["resultCode"] == "0000")
             {
                 Debug.WriteLine("success");
+                Billing(string bid);
             }
             else
             {
@@ -81,7 +82,7 @@ public partial class response : Page
         var client = new RestClient();
         client.Authenticator = new HttpBasicAuthenticator(clientId, secretKey);
 
-        var request = new RestRequest("https://api.nicepay.co.kr/v1/subscribe/" + bid + "/payments");
+        var request = new RestRequest("https://sandbox-api.nicepay.co.kr/v1/subscribe/" + bid + "/payments");
         request.Method = Method.POST;
         request.AddHeader("Accept", "application/json");
         request.AddParameter("application/json; charset=utf-8", payload.ToString(), ParameterType.RequestBody);
@@ -126,7 +127,7 @@ public partial class response : Page
         var client = new RestClient();
         client.Authenticator = new HttpBasicAuthenticator(clientId, secretKey);
 
-        var request = new RestRequest("https://api.nicepay.co.kr/v1/subscribe/" + bid + "/expire");
+        var request = new RestRequest("https://sandbox-api.nicepay.co.kr/v1/subscribe/" + bid + "/expire");
         request.Method = Method.POST;
         request.AddHeader("Accept", "application/json");
         request.AddParameter("application/json; charset=utf-8", payload.ToString(), ParameterType.RequestBody);
